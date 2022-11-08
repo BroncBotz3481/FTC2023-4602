@@ -32,10 +32,10 @@ public class Team4602TeleOp2023 extends LinearOpMode {
 
         while (opModeIsActive()) {
             boolean speedslow = gamepad1.right_bumper;
-            double mag = speedslow ? 0.3 : 1.0;
+            double mag = speedslow ? 1.0 : 1.0;
 
             boolean speedslow1 = gamepad1.left_bumper;
-            double mag1 = speedslow1 ? 0.45 : 1.0;
+            double mag1 = speedslow1 ? 0.75 : 1.0;  //makes speed high
 
             double y = gamepad1.left_stick_y; // Remember, this is reversed!
             double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
@@ -45,6 +45,19 @@ public class Team4602TeleOp2023 extends LinearOpMode {
             if (robot.Touch.isPressed()) {
                 telemetry.addData("Touch", robot.Touch.isPressed());
                 telemetry.update();
+            }
+
+            if(hwMap.ButtonX.GetButtonBurstDown()){
+                if (ElevatorMotor==0)
+                    ElevatorMotor==1;
+                else:
+                    ElevatorMotor==0;
+            }
+            if(hwMap.ButtonY.GetButtonBurstDown()){
+                if (ElevatorMotor==0)
+                    ElevatorMotor==-1;
+                else:
+                ElevatorMotor==0;
             }
 
             // hello
@@ -63,10 +76,10 @@ public class Team4602TeleOp2023 extends LinearOpMode {
             telemetry.addData("LeftBack", robot.DriveLeftBack.getCurrentPosition());
             telemetry.update();
 
-            robot.DriveLeftFront.setPower(frontLeftPower * mag * mag1);
-            robot.DriveLeftBack.setPower(backLeftPower * mag * mag1);
-            robot.DriveRightFront.setPower(frontRightPower * mag * mag1);
-            robot.DriveRightBack.setPower(backRightPower * mag * mag1);
+            robot.DriveLeftFront.setPower(frontLeftPower * mag * mag1*0.5);
+            robot.DriveLeftBack.setPower(backLeftPower * mag * mag1*0.5);
+            robot.DriveRightFront.setPower(frontRightPower * mag * mag1*0.5);
+            robot.DriveRightBack.setPower(backRightPower * mag * mag1*0.5);
 
         }
     }
