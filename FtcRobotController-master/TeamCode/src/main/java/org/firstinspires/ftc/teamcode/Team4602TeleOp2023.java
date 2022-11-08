@@ -24,39 +24,20 @@ public class Team4602TeleOp2023 extends LinearOpMode {
         robot.DriveRightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        robot.leftGripper.setPosition(0);
+        robot.rightGripper.setPosition(0);
 
         //robot.Lights.setPattern(RevBlinkinLedDriver.BlinkinPattern.BEATS_PER_MINUTE_PARTY_PALETTE);
         waitForStart();
 
         while (opModeIsActive()) {
             boolean speedslow = gamepad1.right_bumper;
-            double mag = speedslow ? 1.0 : 1.0;
-
-            boolean speedslow1 = gamepad1.left_bumper;
-            double mag1 = speedslow1 ? 0.75 : 1.0;  //makes speed high
+            double mag = speedslow ? 1.0 : 0.5;
 
             double y = gamepad1.left_stick_y; // Remember, this is reversed!
             double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
             double rx = -gamepad1.right_stick_x;
 
-
-            if (robot.Touch.isPressed()) {
-                telemetry.addData("Touch", robot.Touch.isPressed());
-                telemetry.update();
-            }
-
-            if (hwMap.ButtonX.GetButtonBurstDown()) {
-                if (ElevatorMotor == 0)
-                    ElevatorMotor == 1;
-                else:
-                ElevatorMotor == 0;
-            }
-            if (hwMap.ButtonY.GetButtonBurstDown()) {
-                if (ElevatorMotor == 0)
-                    ElevatorMotor == -1;
-                else:
-                ElevatorMotor == 0;
-            }
 
             // hello
             // Denominator is the largest motor power (absolute value) or 1
@@ -74,11 +55,29 @@ public class Team4602TeleOp2023 extends LinearOpMode {
             telemetry.addData("LeftBack", robot.DriveLeftBack.getCurrentPosition());
             telemetry.update();
 
-            robot.DriveLeftFront.setPower(frontLeftPower * mag * mag1 * 0.5);
-            robot.DriveLeftBack.setPower(backLeftPower * mag * mag1 * 0.5);
-            robot.DriveRightFront.setPower(frontRightPower * mag * mag1 * 0.5);
-            robot.DriveRightBack.setPower(backRightPower * mag * mag1 * 0.5);
+            robot.DriveLeftFront.setPower(frontLeftPower * mag);
+            robot.DriveLeftBack.setPower(backLeftPower * mag);
+            robot.DriveRightFront.setPower(frontRightPower * mag);
+            robot.DriveRightBack.setPower(backRightPower * mag);
 
+            if (gamepad2.b) {
+                robot.ElevatorMotor.setPower(1);
+            }
+            else if (gamepad2.a){
+                robot.ElevatorMotor.setPower(-1);
+            }
+            else {
+                robot.ElevatorMotor.setPower(0);
+            }
+
+            if (gamepad2.x){
+                robot.leftGripper.setPosition(1);
+                robot.rightGripper.setPosition(1);
+            }
+            else{
+                robot.leftGripper.setPosition(0);
+                robot.rightGripper.setPosition(0);
+            }
         }
     }
 }

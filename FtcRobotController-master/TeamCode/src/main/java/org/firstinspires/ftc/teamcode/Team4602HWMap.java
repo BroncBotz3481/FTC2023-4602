@@ -21,7 +21,7 @@ public class Team4602HWMap {
     public Servo leftGripper = null;
     public Servo rightGripper = null;
 
-    HardwareMap hwMap           =  null;
+    HardwareMap hwMap = null;
 
     public void Map(HardwareMap hardwareMap)
     {
