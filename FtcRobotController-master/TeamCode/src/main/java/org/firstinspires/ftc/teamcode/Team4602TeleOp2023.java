@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-//import org.firstinspires.ftc.teamcode.BaseCode.New.Team4602HWMap;
+
 @TeleOp(name = "Team4602TeleOp2023", group = "4602")
 public class Team4602TeleOp2023 extends LinearOpMode {
     Team4602HWMap robot = new Team4602HWMap();
