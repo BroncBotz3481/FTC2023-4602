@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name = "Team4602TeleOp2023", group = "4602")
 public class Team4602TeleOp2023 extends LinearOpMode {
-    Team4602HWMap robot = new Team4602HWMap();
+    Team4602HWMap2023 robot = new Team4602HWMap2023();
 
     //Position position = Position.DOWN;
 
