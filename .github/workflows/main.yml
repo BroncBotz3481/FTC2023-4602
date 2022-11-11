@@ -12,9 +12,6 @@ on:
 jobs:    
   # This workflow contains a single job called "build"
   build:
-    defaults:
-      run:
-        working-directory: /home/circleci/src
     # The type of runner that the job will run on
     runs-on: self-hosted
 
@@ -23,10 +20,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Setup permissions
+      run: sudo chown -R circleci:circleci /
+      
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-      with:
-        path: /home/circleci/src
+    - uses: actions/checkout@v3
 
     # Grant execute permission for gradlew
     - name: Grant execute permission for gradlew
