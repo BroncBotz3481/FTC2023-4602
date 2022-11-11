@@ -21,7 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Setup permissions
-      run: sudo chown -R circleci:circleci /
+      run: sudo chown circleci:circleci / && sudo chown circleci:cicleci $GITHUB_WORKSPACE
       
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v3
