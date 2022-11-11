@@ -16,7 +16,7 @@ jobs:
     runs-on: self-hosted
 
     # This grabs the WPILib docker container
-    container: cimg/android:2022.09.2
+    container: ubuntu:22.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:    
