@@ -9,9 +9,11 @@ on:
     branches: [ main ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
+jobs:    
   # This workflow contains a single job called "build"
   build:
+    env:
+      GITHUB_WORKSPACE: ~/src
     # The type of runner that the job will run on
     runs-on: self-hosted
 
