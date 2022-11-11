@@ -47,7 +47,7 @@ public class Team4602HWMap2023 {
         DriveRightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         DriveRightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        ElevatorMotor = hwMap.get(DcMotor.class, "Elevator Motor");
+        ElevatorMotor = hwMap.get(DcMotor.class, "ElevatorMotor");
         ElevatorMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         ElevatorMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         ElevatorMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
