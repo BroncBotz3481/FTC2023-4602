@@ -16,15 +16,12 @@ jobs:
     runs-on: self-hosted
 
     # This grabs the WPILib docker container
-    container: circleci/android:api-26-node
+    container: cimg/android:2022.09.2
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    - name: Setup permissions
-      run: sudo chown circleci:circleci / && sudo chown -R circleci:circleci $GITHUB_WORKSPACE
-      
+    steps:    
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
     # Grant execute permission for gradlew
     - name: Grant execute permission for gradlew
