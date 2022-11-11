@@ -28,6 +28,7 @@ jobs:
       id: setup-ndk
       with:
         ndk-version: r21e
+        local-cache: true
         
     - name: Setup Java JDK
       uses: actions/setup-java@v1
