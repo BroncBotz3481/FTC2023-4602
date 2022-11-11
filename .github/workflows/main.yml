@@ -31,7 +31,7 @@ jobs:
     
     # Required due to students directory mistakes...
     - name: Fix Your Directories
-      run: cd FtcRobotController-master
+      run: mv FtcRobotController-master/* ./ 2> /dev/null
       
     # Grant execute permission for gradlew
     - name: Grant execute permission for gradlew
