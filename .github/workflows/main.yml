@@ -25,7 +25,10 @@ jobs:
       with:
         java-version: 11
         distribution: corretto
-
+        
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+      
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
