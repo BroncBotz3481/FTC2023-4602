@@ -12,8 +12,9 @@ on:
 jobs:    
   # This workflow contains a single job called "build"
   build:
-    env:
-      GITHUB_WORKSPACE: ~/src
+    defaults:
+      run:
+        working-directory: /home/circleci/src
     # The type of runner that the job will run on
     runs-on: self-hosted
 
