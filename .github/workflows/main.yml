@@ -41,7 +41,8 @@ jobs:
       uses: android-actions/setup-android@v2
       
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - name: Checkout git repo
+      uses: actions/checkout@v2
     
     # Required due to students directory mistakes...
     - name: Fix Your Directories
@@ -58,12 +59,17 @@ jobs:
       run: ./gradlew build
      
     # Upload lint report
-    - uses: actions/upload-artifact@v3
+    - name: Upload Lint Reports
+      uses: actions/upload-artifact@v3
       with:
         name: lint_report
         path: TeamCode/build/reports/
 
-    - uses: actions/upload-artifact@v3
+    - name: Upload APKs
+      uses: actions/upload-artifact@v3
       with:
         name: apk
         path: TeamCode/build/outputs/apk/
+        
+    - name: List files
+      run: find . -type f
