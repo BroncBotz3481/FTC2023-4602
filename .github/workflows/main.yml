@@ -70,6 +70,3 @@ jobs:
       with:
         name: apk
         path: TeamCode/build/outputs/apk/
-        
-    - name: List files
-      run: find . -type f
