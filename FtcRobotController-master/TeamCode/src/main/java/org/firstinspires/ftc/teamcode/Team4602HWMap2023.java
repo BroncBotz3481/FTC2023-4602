@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -16,6 +17,8 @@ public class Team4602HWMap2023 {
 
     public Servo leftGripper = null;
     public Servo rightGripper = null;
+
+    public NormalizedColorSensor ColorSensor = null;
 
     HardwareMap hwMap = null;
 
@@ -51,5 +54,10 @@ public class Team4602HWMap2023 {
         ElevatorMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         ElevatorMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         ElevatorMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        ColorSensor = hwMap.get(NormalizedColorSensor.class, "Sensor");
+
+
+
     }
 }
