@@ -24,8 +24,8 @@ public class Team4602TeleOp2023 extends LinearOpMode {
         robot.DriveRightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        robot.leftGripper.setPosition(-1);
-        robot.rightGripper.setPosition(0);
+        robot.leftGripper.setPosition(.3);
+        robot.rightGripper.setPosition(.7);
 
         //robot.Lights.setPattern(RevBlinkinLedDriver.BlinkinPattern.BEATS_PER_MINUTE_PARTY_PALETTE);
         waitForStart();
@@ -74,12 +74,12 @@ public class Team4602TeleOp2023 extends LinearOpMode {
             }
 
             if (gamepad2.x){
-                robot.leftGripper.setPosition(0);
-                robot.rightGripper.setPosition(0);
+                robot.leftGripper.setPosition(.3);
+                robot.rightGripper.setPosition(.7);
             }
             else{
-                robot.leftGripper.setPosition(-0.4);
-                robot.rightGripper.setPosition(-0.4);
+                robot.leftGripper.setPosition(.7);
+                robot.rightGripper.setPosition(.3);
             }
         }
     }

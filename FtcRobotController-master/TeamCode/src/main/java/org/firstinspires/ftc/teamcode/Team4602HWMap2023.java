@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Team4602HWMap2023 {
@@ -51,7 +50,7 @@ public class Team4602HWMap2023 {
         DriveRightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         ElevatorMotor = hwMap.get(DcMotor.class, "ElevatorMotor");
-        ElevatorMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        ElevatorMotor.setDirection(DcMotor.Direction.REVERSE);
         ElevatorMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         ElevatorMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
