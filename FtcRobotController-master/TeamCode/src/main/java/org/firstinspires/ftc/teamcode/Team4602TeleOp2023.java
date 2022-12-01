@@ -74,11 +74,11 @@ public class Team4602TeleOp2023 extends LinearOpMode {
             }
 
             if (gamepad2.x){
-                robot.leftGripper.setPosition(.3);
+                robot.leftGripper.setPosition(.2);
                 robot.rightGripper.setPosition(.7);
             }
             else{
-                robot.leftGripper.setPosition(.7);
+                robot.leftGripper.setPosition(.6);
                 robot.rightGripper.setPosition(.3);
             }
         }

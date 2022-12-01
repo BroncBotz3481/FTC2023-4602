@@ -45,7 +45,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
         robot.DriveLeftFront.setPower(-multy);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
-        while(opModeIsActive() && Time.milliseconds() < 4500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while(opModeIsActive() && Time.milliseconds() < 5400 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             // telemetry.update();
         }
