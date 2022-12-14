@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 import com.qualcomm.robotcore.hardware.SwitchableLight;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Team4602Auto1ParkingVision", group="4602")
+@Autonomous(name="Team4602Auto1ParkingRedLeft", group="4602")
 
 public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
     Team4602HWMap2023 robot = new Team4602HWMap2023();
@@ -45,7 +45,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
         robot.DriveLeftFront.setPower(-multy);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
-        while(opModeIsActive() && Time.milliseconds() < 5400 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while(opModeIsActive() && Time.milliseconds() < 5000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             // telemetry.update();
         }
@@ -128,7 +128,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
         robot.DriveLeftFront.setPower(-multy);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
-        while(opModeIsActive() && Time.milliseconds() < 2000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while(opModeIsActive() && Time.milliseconds() < 1250 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             //telemetry.update();
         }
