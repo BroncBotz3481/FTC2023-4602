@@ -11,11 +11,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="Team4602Auto1ParkingRedLeft", group="4602")
 
-public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
+public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
     Team4602HWMap2023 robot = new Team4602HWMap2023();
     ElapsedTime Time = new ElapsedTime();
 
-    double multy = 0.3;
+    double multy = 0.15;
     int OPG = 0; // 1 = Orange, 2 = Green, 3 = Purple
     float[] hsvValues = new float[3];
     int count = 0;
@@ -27,7 +27,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
         double tick;
 
         if (robot.ColorSensor instanceof SwitchableLight) {
-            ((SwitchableLight)robot.ColorSensor).enableLight(true);
+            ((SwitchableLight) robot.ColorSensor).enableLight(true);
         }
 
 
@@ -36,16 +36,25 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
 
         //Drive forward
         distance = 20;
-        multy = 0.15;
+        multy = 0.25;
+
         // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        tick = (distance * 537.7)/(4 * Math.PI);
+        tick = (distance * 537.7) / (4 * Math.PI);
         Time.reset();
         robot.DriveRightFront.setPower(-multy);
-        robot.DriveLeftFront.setPower(-multy);
+        robot.DriveLeftFront.setPower(-multy*1.2);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
-        while(opModeIsActive() && Time.milliseconds() < 5000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+
+        /*
+        robot.DriveRightFront.setPower(-multy*3);
+        robot.DriveLeftFront.setPower(-multy*3);
+        robot.DriveRightBack.setPower(0);
+        robot.DriveLeftBack.setPower(0);
+         */
+
+        while (opModeIsActive() && Time.milliseconds() < 3600 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             // telemetry.update();
         }
@@ -55,7 +64,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
         robot.DriveLeftBack.setPower(0);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        sleep(1000);
+        sleep(1500);
 
         Time.reset();
         while (opModeIsActive() && count < 5) {
@@ -105,30 +114,29 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
 
 
         Time.reset();
-        while (opModeIsActive() && Time.milliseconds() < 300){
+        while (opModeIsActive() && Time.milliseconds() < 300) {
             int Hvalue = (int) hsvValues[0];
-            if (Hvalue >= 0 && Hvalue <= 140){
+            if (Hvalue >= 0 && Hvalue <= 135) {
                 OPG = 1;
-            }
-            else if(Hvalue > 140 && Hvalue <= 152) {
+            } else if (Hvalue > 135 && Hvalue <= 152) {
                 OPG = 2;
-            }
-            else{
+            } else {
                 OPG = 3;
             }
         }
         //Drive forward
         distance = 20;
-        multy = 0.15;
+        multy = 0.15
+        ;
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        tick = (distance * 537.7)/(4 * Math.PI);
+        tick = (distance * 537.7) / (4 * Math.PI);
         Time.reset();
         robot.DriveRightFront.setPower(-multy);
         robot.DriveLeftFront.setPower(-multy);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
-        while(opModeIsActive() && Time.milliseconds() < 1250 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while (opModeIsActive() && Time.milliseconds() < 1100 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             //telemetry.update();
         }
@@ -138,21 +146,21 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
         robot.DriveLeftBack.setPower(0);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        sleep(1000);
+        sleep(1500);
 
-        if(OPG == 1){
+        if (OPG == 1) {
             //Strafe Left
             distance = 20;
-            multy = 0.4;
+            multy = 0.3;
             // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            tick = (distance * 537.7)/(4 * Math.PI);
+            tick = (distance * 537.7) / (4 * Math.PI);
             Time.reset();
             robot.DriveRightFront.setPower(-multy);
             robot.DriveLeftFront.setPower(multy);
             robot.DriveRightBack.setPower(multy);
             robot.DriveLeftBack.setPower(-multy);
-            while(opModeIsActive() && Time.milliseconds() < 2000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            while (opModeIsActive() && Time.milliseconds() < 2300 && robot.DriveLeftFront.getCurrentPosition() < tick) {
                 telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
                 //telemetry.update();
             }
@@ -163,20 +171,19 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             sleep(1000);
-        }
-        else if (OPG == 3){
+        } else if (OPG == 3) {
             //Strafe Right
             distance = 20;
-            multy = 0.4;
+            multy = 0.3;
             // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            tick = (distance * 537.7)/(4 * Math.PI);
+            tick = (distance * 537.7) / (4 * Math.PI);
             Time.reset();
             robot.DriveRightFront.setPower(multy);
             robot.DriveLeftFront.setPower(-multy);
             robot.DriveRightBack.setPower(-multy);
             robot.DriveLeftBack.setPower(multy);
-            while(opModeIsActive() && Time.milliseconds() < 2000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            while (opModeIsActive() && Time.milliseconds() < 2100 && robot.DriveLeftFront.getCurrentPosition() < tick) {
                 telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
                 //telemetry.update();
             }
@@ -186,30 +193,30 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode{
             robot.DriveLeftBack.setPower(0);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            sleep(1000);
+            sleep(1500);
 
             //Back
-            distance = 20;
-            multy = 0.25;
-            // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            tick = (distance * 537.7)/(4 * Math.PI);
-            Time.reset();
-            robot.DriveRightFront.setPower(multy);
-            robot.DriveLeftFront.setPower(multy);
-            robot.DriveRightBack.setPower(multy);
-            robot.DriveLeftBack.setPower(multy);
-            while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
-                telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
-                //telemetry.update();
-            }
-            robot.DriveRightFront.setPower(0);
-            robot.DriveLeftFront.setPower(0);
-            robot.DriveRightBack.setPower(0);
-            robot.DriveLeftBack.setPower(0);
-            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            sleep(1000);
+//          distance = 20;
+//           multy = 0.20
+//           ;
+////            // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+////            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//      tick = (distance * 537.7)/(4 * Math.PI);
+//   Time.reset();
+//           robot.DriveRightFront.setPower(multy);
+//          robot.DriveLeftFront.setPower(multy);
+//           robot.DriveRightBack.setPower(multy);
+//           robot.DriveLeftBack.setPower(multy);
+//           while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+////               telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
+////                //telemetry.update();
         }
+        robot.DriveRightFront.setPower(0);
+        robot.DriveLeftFront.setPower(0);
+        robot.DriveRightBack.setPower(0);
+        robot.DriveLeftBack.setPower(0);
+//            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        sleep(1000);
     }
 }
