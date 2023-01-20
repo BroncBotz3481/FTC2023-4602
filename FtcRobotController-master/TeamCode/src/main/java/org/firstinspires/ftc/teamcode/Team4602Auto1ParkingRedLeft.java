@@ -35,15 +35,23 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
 
 
         //Drive forward
-        distance = 20;
-        multy = 0.25;
+
+        /*distance = 20;
+        multy = 0.30;
+        tick = (distance * 537.7) / (4 * Math.PI);
+        Time.reset();
+        robot.DriveRightFront.setPower(-multy);
+        robot.DriveLeftFront.setPower(-multy);
+        robot.DriveRightBack.setPower(-multy);
+        robot.DriveLeftBack.setPower(-multy);
+        */
 
         // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         tick = (distance * 537.7) / (4 * Math.PI);
         Time.reset();
         robot.DriveRightFront.setPower(-multy);
-        robot.DriveLeftFront.setPower(-multy*1.2);
+        robot.DriveLeftFront.setPower(-multy);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
 
@@ -54,7 +62,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
         robot.DriveLeftBack.setPower(0);
          */
 
-        while (opModeIsActive() && Time.milliseconds() < 3600 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while (opModeIsActive() && Time.milliseconds() < 1200 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             // telemetry.update();
         }
@@ -126,7 +134,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
         }
         //Drive forward
         distance = 20;
-        multy = 0.15
+        multy = 0.20
         ;
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -218,5 +226,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
 //            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 //            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         sleep(1000);
+
+
     }
 }
