@@ -37,7 +37,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
         //Drive forward
 
         /*distance = 20;
-        multy = 0.30;
+        multy = 0.3;
         tick = (distance * 537.7) / (4 * Math.PI);
         Time.reset();
         robot.DriveRightFront.setPower(-multy);
@@ -54,13 +54,6 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
         robot.DriveLeftFront.setPower(-multy);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
-
-        /*
-        robot.DriveRightFront.setPower(-multy*3);
-        robot.DriveLeftFront.setPower(-multy*3);
-        robot.DriveRightBack.setPower(0);
-        robot.DriveLeftBack.setPower(0);
-         */
 
         while (opModeIsActive() && Time.milliseconds() < 1200 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
@@ -134,8 +127,8 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
         }
         //Drive forward
         distance = 20;
-        multy = 0.20
-        ;
+        multy = 0.2;
+
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         tick = (distance * 537.7) / (4 * Math.PI);
@@ -144,7 +137,8 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
         robot.DriveLeftFront.setPower(-multy);
         robot.DriveRightBack.setPower(-multy);
         robot.DriveLeftBack.setPower(-multy);
-        while (opModeIsActive() && Time.milliseconds() < 1100 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while (opModeIsActive() && -
+                Time.milliseconds() < 1100 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             //telemetry.update();
         }
@@ -203,21 +197,7 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             sleep(1500);
 
-            //Back
-//          distance = 20;
-//           multy = 0.20
-//           ;
-////            // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-////            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//      tick = (distance * 537.7)/(4 * Math.PI);
-//   Time.reset();
-//           robot.DriveRightFront.setPower(multy);
-//          robot.DriveLeftFront.setPower(multy);
-//           robot.DriveRightBack.setPower(multy);
-//           robot.DriveLeftBack.setPower(multy);
-//           while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
-////               telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
-////                //telemetry.update();
+
         }
         robot.DriveRightFront.setPower(0);
         robot.DriveLeftFront.setPower(0);
@@ -227,6 +207,110 @@ public class Team4602Auto1ParkingRedLeft extends LinearOpMode {
 //            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         sleep(1000);
 
+        //Back
+/*
+        robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        tick = (distance * 537.7)/(4 * Math.PI);
+        Time.reset();
+        robot.DriveRightFront.setPower(multy);
+        robot.DriveLeftFront.setPower(multy);
+        robot.DriveRightBack.setPower(multy);
+        robot.DriveLeftBack.setPower(multy);
+        while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+          telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+*/
 
+        //Scoring in Autonomous
+/*
+        for (int numCones = 0; numCones < 3; numCones++) {
+          //Turning
+          tick = (distance * 537.7)/(4 * Math.PI);
+          Time.reset();
+          robot.DriveRightFront.setPower(multy);
+          robot.DriveLeftFront.setPower(multy);
+          robot.DriveRightBack.setPower(multy);
+          robot.DriveLeftBack.setPower(multy);
+          while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+
+          //Forwards
+          tick = (distance * 537.7)/(4 * Math.PI);
+          Time.reset();
+          robot.DriveRightFront.setPower(multy);
+          robot.DriveLeftFront.setPower(multy);
+          robot.DriveRightBack.setPower(multy);
+          robot.DriveLeftBack.setPower(multy);
+          while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+
+          //Grab
+
+
+          //Elevator Up
+
+
+          //Back
+          tick = (distance * 537.7)/(4 * Math.PI);
+          Time.reset();
+          robot.DriveRightFront.setPower(multy);
+          robot.DriveLeftFront.setPower(multy);
+          robot.DriveRightBack.setPower(multy);
+          robot.DriveLeftBack.setPower(multy);
+          while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+
+          //Turning
+          tick = (distance * 537.7)/(4 * Math.PI);
+          Time.reset();
+          robot.DriveRightFront.setPower(multy);
+          robot.DriveLeftFront.setPower(multy);
+          robot.DriveRightBack.setPower(multy);
+          robot.DriveLeftBack.setPower(multy);
+          while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+
+
+          //Front
+          tick = (distance * 537.7)/(4 * Math.PI);
+          Time.reset();
+          robot.DriveRightFront.setPower(multy);
+          robot.DriveLeftFront.setPower(multy);
+          robot.DriveRightBack.setPower(multy);
+          robot.DriveLeftBack.setPower(multy);
+          while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+
+
+          //Strafe
+          tick = (distance * 537.7) / (4 * Math.PI);
+          Time.reset();
+          robot.DriveRightFront.setPower(multy);
+          robot.DriveLeftFront.setPower(-multy);
+          robot.DriveRightBack.setPower(-multy);
+          robot.DriveLeftBack.setPower(multy);
+          while (opModeIsActive() && Time.milliseconds() < 2100 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+              telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+          robot.DriveRightFront.setPower(0);
+          robot.DriveLeftFront.setPower(0);
+          robot.DriveRightBack.setPower(0);
+          robot.DriveLeftBack.setPower(0);
+
+          //Release
+
+
+          //Elevator Down
+
+
+          //Back(original position)
+          tick = (distance * 537.7)/(4 * Math.PI);
+          Time.reset();
+          robot.DriveRightFront.setPower(multy);
+          robot.DriveLeftFront.setPower(multy);
+          robot.DriveRightBack.setPower(multy);
+          robot.DriveLeftBack.setPower(multy);
+          while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition()); }
+ */
     }
 }
