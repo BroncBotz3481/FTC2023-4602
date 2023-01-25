@@ -56,7 +56,5 @@ public class Team4602HWMap2023 {
 
         ColorSensor = hwMap.get(NormalizedColorSensor.class, "Sensor");
 
-
-
     }
 }
